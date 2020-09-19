@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
 
 const initialProject = {
-    goalFundingDate: "",
-    dateCreated: "",
-    dateUpdated: "",
     projectTitle: "",
     projectStory: "",
     goalFunding: "",
@@ -33,14 +30,30 @@ function EditProject({ here, updateProject }) {
         .catch(err => console.log('saveEdit api not working', err))
     }
 
+    const deleteProject = pro => {
+        axiosWithAuth()
+        .delete(`/projects/${pro.id}`)
+        .then ( () => {
+            updateProject(pro.filter(...here.filter(item => item.id !== pro.id)))
+        })
+        .catch(err => console.log(err));
+    }
+
     return (
             <div >
             <h2>Edit Project</h2>
             {here.map((project) => (
-                <div className="projectList" key={project.id} onClick={() => editProjects(project)}>
-                    <p>Title: {project.projectTitle}</p>
-                    <p>{project.projectStory}</p>
-                    <p>Our Goal: {project.goalFunding}</p>
+                <div className="projectList" key={project.project} {...project} onClick={() => editProjects(project)}>
+                    <span>
+              <span className="delete" onClick={e => {
+                    e.stopPropagation();
+                    deleteProject(project)
+                  }
+                }>
+                  Delete
+              </span>{" "}
+              {project.projectTitle}
+            </span>
                 </div>
             ))}
 
@@ -48,16 +61,16 @@ function EditProject({ here, updateProject }) {
                 <form onSubmit={saveEdit}>
                     <input onChange={e => 
                     setProjectsEdit({...projectsEdit, projectTitle: e.target.value }) } 
-                    value={projectsEdit.projectTitle} name='projectTitle'/>
+                    value={projectsEdit.projectTitle} name='projectTitle' id='projectTitle'/>
+                    
                     <input onChange={e => 
                     setProjectsEdit({...projectsEdit, projectStory: e.target.value }) } 
                     value={projectsEdit.projectStory} name='projectStory'/>
+                    
                     <input onChange={e => 
                     setProjectsEdit({...projectsEdit, goalFunding: e.target.value }) } 
                     value={projectsEdit.goalFunding} name='goalFunding'/>
-                     <input onChange={e => 
-                    setProjectsEdit({...projectsEdit, userID: e.target.value }) } 
-                    value={projectsEdit.userID} name='userID'/>
+                    
                     <div>
                         <button type="submit">save</button>
                         <button onClick={() => setEditing(false)}>cancel</button>

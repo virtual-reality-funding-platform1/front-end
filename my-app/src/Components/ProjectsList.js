@@ -1,24 +1,14 @@
-import React, { useState } from 'react'
-import {axiosWithAuth} from '../utils/AxiosWithAuth'
+import React, { useContext } from 'react'
+import { ProjectContext } from '../contexts/ProjectContext'
 
-const initialProject = {
-    id: "",
-    goalFundingDate: "",
-    dateCreated: "",
-    dateUpdated: "",
-    projectTitle: "",
-    projectStory: "",
-    goalFunding: "",
-    userID: ""
-}
 
-function ProjectsList (props) {
-
+function ProjectsList () {
+    const { projectList } = useContext( ProjectContext )
     return (
         <div>
             <h2>Start fundraising today</h2>
             <div className="list">
-            {props.projectList.map((project) => (
+            {projectList.map((project) => (
                 <div className="projectList" key={project.id}>
                     <h3> {project.projectTitle}</h3>
                     <p>{project.projectStory}</p>
@@ -32,7 +22,3 @@ function ProjectsList (props) {
 
 export default ProjectsList
 
-// projectTitle: data.projectTitle,
-// projectStory: data.projectStory,
-// goalFunding: data.goalFunding,
-// userID: ""
