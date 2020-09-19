@@ -1,16 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {axiosWithAuth} from '../utils/AxiosWithAuth'
+
+const initialProject = {
+    id: "",
+    goalFundingDate: "",
+    dateCreated: "",
+    dateUpdated: "",
+    projectTitle: "",
+    projectStory: "",
+    goalFunding: "",
+    userID: ""
+}
 
 function ProjectsList (props) {
+
     return (
-        <div className="list">
+        <div>
             <h2>Start fundraising today</h2>
+            <div className="list">
             {props.projectList.map((project) => (
                 <div className="projectList" key={project.id}>
-                    <p>Title: {project.projectTitle}</p>
+                    <h3> {project.projectTitle}</h3>
                     <p>{project.projectStory}</p>
-                    <p>Our Goal: {project.goalFunding}</p>
+                    <p>Goal of {project.goalFunding}</p>
                 </div>
             ))}
+            </div>
         </div>
     )
 }

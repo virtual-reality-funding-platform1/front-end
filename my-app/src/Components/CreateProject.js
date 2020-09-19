@@ -3,7 +3,7 @@ import axios from "axios"
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
 import { Input, Form } from 'semantic-ui-react'
 
-const CreateProject = props => {
+const CreateProject = (props) => {
     const [project, setProject] = useState({
             projectTitle: "",
             projectStory: "",
@@ -12,6 +12,7 @@ const CreateProject = props => {
     })
 
     const [post, setPost] = useState([])
+   
 
     const handleChanges = e => {
         setProject({ ...project,
@@ -42,7 +43,7 @@ const CreateProject = props => {
     return (
         <div className='projectForm'>
             <h2> Create Project</h2>
-            <Form onSubmit={submitForm}>
+            <Form onSubmit={submitForm} >
                 <Form.Field>
                     <input
                         id='projectTitle'

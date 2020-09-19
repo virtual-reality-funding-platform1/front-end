@@ -3,8 +3,10 @@ import { axiosWithAuth } from '../utils/AxiosWithAuth'
 import { FetchApi } from '../utils/FetchApi'
 import CreateProject from './CreateProject'
 import ProjectsList from './ProjectsList'
+import EditProject from './EditProject'
 
-const initialProject = {
+const ProjectsPage = () => {
+    const [projectList, setProjectList] = useState ([{
     id: "",
     goalFundingDate: "",
     dateCreated: "",
@@ -13,30 +15,7 @@ const initialProject = {
     projectStory: "",
     goalFunding: "",
     userID: ""
-}
-const ProjectsPage = ({projects, updateProject}) => {
-    console.log(projects)
-    const [projectList, setProjectList] = useState ([initialProject])
-    const [editing, setEditing] = useState(false);
-    const [projectToEdit, setProjectToEdit] = useState([initialProject])
-    
-    const editProject = project => {
-        setEditing(true)
-        setProjectToEdit(project)
-    }
-
-    const saveEdit = (e) => {
-        e.preventDefault()
-        axiosWithAuth()
-        .put(`/projects/${setProjectList.id}`, projectList)
-            .then(res => {
-                updateProject([
-                    ...projects.filter(item => item.id !== projectToEdit.id),
-                    res.data
-                ])
-            })
-            .catch(err => console.log('edit api not working', err))
-    }
+    }])
 
 
     useEffect(() => {
@@ -63,9 +42,10 @@ const ProjectsPage = ({projects, updateProject}) => {
     }
 
     return (
-        <div className="projectPage">
+        <div className="projectPage" className="App">
             <CreateProject newProject={newProject}  />
-            <ProjectsList projectList={projectList} />
+            {/* <ProjectsList projectList={projectList} /> */}
+            <EditProject updateProject={setProjectList} here={projectList}/>
         </div>
     )
 }
