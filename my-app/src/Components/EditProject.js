@@ -40,20 +40,22 @@ function EditProject({ here, updateProject }) {
     }
 
     return (
-            <div >
+            <div>
             <h2>Edit Project</h2>
             {here.map((project) => (
                 <div className="projectList" key={project.project} {...project} onClick={() => editProjects(project)}>
-                    <span>
-              <span className="delete" onClick={e => {
+                    <div className="editProject">
+              <span  className="delete" onClick={e => {
                     e.stopPropagation();
                     deleteProject(project)
                   }
                 }>
                   Delete
-              </span>{" "}
-              {project.projectTitle}
-            </span>
+              </span>
+              <h3>{project.projectTitle}</h3>
+              <p>{project.projectStory}</p>
+              <p>{project.goalFunding}</p>
+            </div>
                 </div>
             ))}
 

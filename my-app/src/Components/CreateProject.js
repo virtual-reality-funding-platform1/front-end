@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
-import { Input, Form } from 'semantic-ui-react'
+import { Input, Form, Button } from 'semantic-ui-react'
 
 const CreateProject = (props) => {
     const [project, setProject] = useState({
@@ -84,9 +84,8 @@ const CreateProject = (props) => {
                         value={project.userID}
                     />  
                 </Form.Field>
-                <Input
-                    type='submit'
-                />
+                <Button>Submit</Button>
+                  
             </Form>
         </div>
     )

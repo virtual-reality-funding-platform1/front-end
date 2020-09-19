@@ -1,36 +1,79 @@
-.landing {
-  width: 60%;
-  margin-right: auto;
-  margin-left: auto;
-  
+body {
+
 }
 
+.landing {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.App {
+  width: 50%;
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+h1 {
+  text-align: center;
+}
 .projectPage {
   text-align: center;
   display: flex;
+  justify-content: space-between;
 }
 
 .projectForm {
   height: 100%;
-  width: 300px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin: 10%;
+  width: 500px;
+  margin-right: 10%;
 }
 
+
+ input {
+   margin-left: 30%;
+   width: 200px;
+   height: 20px;
+   margin-top: 10px;
+ }
+
+ Button {
+  margin-left: 30%;
+ }
+
+
+.editProject {
+  height: 100%;
+  width: 300px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin-right: 10%;
+}
 
 .list {
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .projectList {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.023), 0 3px 6px rgba(0, 0, 0, 0.023);
-
   width: 200px;
   box-sizing: inherit;
   font-size: 12px;
   overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
+.delete {
+  color:red;
 }
 
 p {
@@ -42,4 +85,12 @@ h2 {
   color: #333;
   font-weight: 900;
   text-align: center;
+}
+
+h3 {
+  color: #b5838d
+}
+
+.login {
+  width: 50%;
 }
