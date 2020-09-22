@@ -9,16 +9,10 @@ import { ProjectContext } from '../contexts/ProjectContext'
 
 const ProjectsPage = () => {
     const [projectList, setProjectList] = useState ([{
-    id: "",
-    goalFundingDate: "",
-    dateCreated: "",
-    dateUpdated: "",
-    projectTitle: "",
-    projectStory: "",
-    goalFunding: "",
-    userID: ""
+        projectTitle: "",
+        projectStory: "",
+        goalFunding: "",
     }])
-
 
     useEffect(() => {
         FetchApi()
@@ -33,21 +27,18 @@ const ProjectsPage = () => {
 
     const newProject = data => {
         const userProject = {
-            id: Date.now(),
-            goalFundingDate: Date.now(),
             projectTitle: data.projectTitle,
             projectStory: data.projectStory,
             goalFunding: data.goalFunding,
-            userID: ""
         }
         setProjectList([...projectList, userProject])
     }
 
     return (
         <div className="projectPage" className="App">
-            <CreateProject newProject={newProject}  />
-            {/* <ProjectsList projectList={projectList} /> */}
+            <CreateProject newProject={newProject}  here={projectList}/>
             <EditProject updateProject={setProjectList} here={projectList}/>
+            <ProjectsList projectList={projectList} />
         </div>
     )
 }

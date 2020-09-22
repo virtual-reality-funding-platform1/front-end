@@ -5,7 +5,6 @@ const initialProject = {
     projectTitle: "",
     projectStory: "",
     goalFunding: "",
-    userID: ""
 }
 
 function EditProject({ here, updateProject }) {
@@ -32,9 +31,9 @@ function EditProject({ here, updateProject }) {
 
     const deleteProject = pro => {
         axiosWithAuth()
-        .delete(`/projects/${pro.id}`)
+        .delete(`projects/${pro.id}`)
         .then ( () => {
-            updateProject(pro.filter(...here.filter(item => item.id !== pro.id)))
+            updateProject(here.filter(item => item.id !== pro.id))
         })
         .catch(err => console.log(err));
     }
@@ -43,10 +42,11 @@ function EditProject({ here, updateProject }) {
             <div>
             <h2>Edit Project</h2>
             {here.map((project) => (
-                <div className="projectList" key={project.project} {...project} onClick={() => editProjects(project)}>
+                <div className="projectList" key={project.project} onClick={() => editProjects(project)}>
                     <div className="editProject">
               <span  className="delete" onClick={e => {
-                    e.stopPropagation();
+                    // e.stopPropagation();
+                    e.preventDefault();
                     deleteProject(project)
                   }
                 }>
@@ -63,7 +63,7 @@ function EditProject({ here, updateProject }) {
                 <form onSubmit={saveEdit}>
                     <input onChange={e => 
                     setProjectsEdit({...projectsEdit, projectTitle: e.target.value }) } 
-                    value={projectsEdit.projectTitle} name='projectTitle' id='projectTitle'/>
+                    value={projectsEdit.projectTitle} name='projectTitle' />
                     
                     <input onChange={e => 
                     setProjectsEdit({...projectsEdit, projectStory: e.target.value }) } 

@@ -8,10 +8,9 @@ const CreateProject = (props) => {
             projectTitle: "",
             projectStory: "",
             goalFunding: "",
-            userID: ""
     })
 
-    const [post, setPost] = useState([])
+    // const [post, setPost] = useState([])
    
 
     const handleChanges = e => {
@@ -26,15 +25,12 @@ const CreateProject = (props) => {
         axiosWithAuth()
             .post("projects", project)
             .then((res) => {
-                setPost(res.data)
-                console.log("Create Project Working", post)
+                // setPost(res.data)
+                console.log("Create Project Working", project)
                 setProject({
-                    id: Date.now(),
-                    goalFundingDate:"",
                     projectTitle: "",
                     projectStory: "",
                     goalFunding: "",
-                    userID: ""
                 })
             })
             .catch((err) => console.log("Create Project NOT working", err))
@@ -46,7 +42,6 @@ const CreateProject = (props) => {
             <Form onSubmit={submitForm} >
                 <Form.Field>
                     <input
-                        id='projectTitle'
                         type='text'
                         placeholder='Project Title'
                         onChange={handleChanges}
@@ -57,7 +52,6 @@ const CreateProject = (props) => {
                 <Form.Field>
                 <input
                     name='projectStory'
-                    id='projectStory'
                     type='text'
                     placeholder='Project Story'
                     onChange={handleChanges}
@@ -67,25 +61,14 @@ const CreateProject = (props) => {
                 <Form.Field>
                     <input
                         name='goalFunding'                    
-                        id='goalFunding'
                         type='text'
                         placeholder='Project Goal Funding'
                         onChange={handleChanges}
                         value={project.goalFunding}
                     />
                 </Form.Field>
-                <Form.Field>  
-                    <Input
-                        name='userID'                    
-                        id='userID'
-                        type='text'
-                        placeholder='User ID'
-                        onChange={handleChanges}
-                        value={project.userID}
-                    />  
-                </Form.Field>
-                <Button>Submit</Button>
-                  
+
+                <Button>Submit</Button>                  
             </Form>
         </div>
     )

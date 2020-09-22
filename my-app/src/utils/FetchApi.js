@@ -1,8 +1,10 @@
 import axios from 'axios'
+import { axiosWithAuth } from '../utils/AxiosWithAuth'
+
 
 export function FetchApi() {
     return (
-        axios
+        axiosWithAuth()
         .get('https://lambdabw-virtual-backend.herokuapp.com/projects')
         .then((res) => {
             console.log(res)

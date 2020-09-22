@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { ProjectContext } from '../contexts/ProjectContext'
 
 
-function ProjectsList () {
-    const { projectList } = useContext( ProjectContext )
+function ProjectsList (props) {
+    // const { projectList } = useContext( ProjectContext )
     return (
         <div>
             <h2>Start fundraising today</h2>
             <div className="list">
-            {projectList.map((project) => (
+            {props.projectList.map((project) => (
                 <div className="projectList" key={project.id}>
                     <h3> {project.projectTitle}</h3>
                     <p>{project.projectStory}</p>
