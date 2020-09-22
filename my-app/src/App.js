@@ -27,7 +27,6 @@ function App() {
           <PrivateRoute path ="/protected" component={ProjectsPage} />
         </Switch>
     </div>
-    {/* </ProjectContext.Provider> */}
     </Router>
   );
 }

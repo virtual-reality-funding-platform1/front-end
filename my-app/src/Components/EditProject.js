@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
+import { ProjectContext } from '../contexts/ProjectContext'
+
 
 const initialProject = {
     projectTitle: "",
@@ -7,7 +9,8 @@ const initialProject = {
     goalFunding: "",
 }
 
-function EditProject({ here, updateProject }) {
+function EditProject({  updateProject }) {
+      const { projectList } = useContext( ProjectContext )
       const [editing, setEditing] = useState(false);
       const [projectsEdit, setProjectsEdit] = useState(initialProject);
 
@@ -22,7 +25,7 @@ function EditProject({ here, updateProject }) {
         .put(`/projects/${projectsEdit.id}`, projectsEdit)
         .then(res=> {
             updateProject([
-                ...here.filter(item => item.id !== projectsEdit.id),
+                ...projectList.filter(item => item.id !== projectsEdit.id),
                 res.data
             ])
         })
@@ -33,7 +36,7 @@ function EditProject({ here, updateProject }) {
         axiosWithAuth()
         .delete(`projects/${pro.id}`)
         .then ( () => {
-            updateProject(here.filter(item => item.id !== pro.id))
+            updateProject(projectList.filter(item => item.id !== pro.id))
         })
         .catch(err => console.log(err));
     }
@@ -41,11 +44,10 @@ function EditProject({ here, updateProject }) {
     return (
             <div>
             <h2>Edit Project</h2>
-            {here.map((project) => (
+            {projectList.map((project) => (
                 <div className="projectList" key={project.project} onClick={() => editProjects(project)}>
                     <div className="editProject">
               <span  className="delete" onClick={e => {
-                    // e.stopPropagation();
                     e.preventDefault();
                     deleteProject(project)
                   }
