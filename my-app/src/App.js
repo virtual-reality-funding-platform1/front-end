@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState, useEffect} from 'react';
+import {FetchApi}  from './utils/FetchApi'
 import './App.css';
+import ProjectsPage from './Components/ProjectsPage'
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Login from './users/Login'
+import PrivateRoute from './utils/PrivateRoute'
+import ProjectsList from './Components/ProjectsList'
+import { ProjectContext } from './contexts/ProjectContext'
+
 
 function App() {
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      {/* <ProjectContext.Provider value={ {projectList }} >
+        {console.log("project list", projectList)} */}
+      <div>
+        <div className="landing">
+          <h1>Virtual Reality Funding</h1>
+          <Route path ="/Login" component={Login} />
+          <Link to ="/Login">Login</Link>
+        </div>
+        <Switch>
+          <PrivateRoute path ="/protected" component={ProjectsPage} />
+        </Switch>
     </div>
+    </Router>
   );
 }
 

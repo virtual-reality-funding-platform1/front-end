@@ -1,38 +1,96 @@
+body {
+
+}
+
+.landing {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
 .App {
+  width: 50%;
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+h1 {
+  text-align: center;
+}
+.projectPage {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.projectForm {
+  height: 100%;
+  width: 500px;
+  margin-right: 10%;
+}
+
+
+ input {
+   margin-left: 30%;
+   width: 200px;
+   height: 20px;
+   margin-top: 10px;
+ }
+
+ Button {
+  margin-left: 30%;
+ }
+
+
+.editProject {
+  height: 100%;
+  width: 300px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin-right: 10%;
+}
+
+.list {
+  display:flex;
+  justify-content: space-around;
+  inline-size: 500px;
+}
+
+.projectList {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.023), 0 3px 6px rgba(0, 0, 0, 0.023);
+  width: 200px;
+  box-sizing: inherit;
+  font-size: 12px;
+  overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
+.delete {
+  color:red;
+}
+
+p {
+  color: #333;
+  display: block;
+}
+
+h2 {
+  color: #333;
+  font-weight: 900;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  color: #b5838d
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login {
+  width: 50%;
 }
