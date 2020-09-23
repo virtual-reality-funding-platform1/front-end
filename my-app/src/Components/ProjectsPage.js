@@ -37,8 +37,10 @@ const ProjectsPage = () => {
     return (
         <div className="projectPage" className="App">
              <ProjectContext.Provider value={ {projectList }} >
-                <CreateProject newProject={newProject}  />
-                <EditProject updateProject={setProjectList} />
+
+                    <CreateProject newProject={newProject}  />
+                    <EditProject updateProject={setProjectList} />
+
                 <ProjectsList projectList={projectList} />
             </ProjectContext.Provider>
         </div>

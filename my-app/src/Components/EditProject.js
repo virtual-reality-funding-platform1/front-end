@@ -42,22 +42,21 @@ function EditProject({  updateProject }) {
     }
 
     return (
-            <div>
+        <div>
             <h2>Edit Project</h2>
+            <div className="editProject">
             {projectList.map((project) => (
                 <div className="projectList" key={project.project} onClick={() => editProjects(project)}>
-                    <div className="editProject">
-              <span  className="delete" onClick={e => {
-                    e.preventDefault();
-                    deleteProject(project)
-                  }
-                }>
-                  Delete
-              </span>
-              <h3>{project.projectTitle}</h3>
-              <p>{project.projectStory}</p>
-              <p>{project.goalFunding}</p>
-            </div>
+                    <span className="delete" onClick={e => {
+                            e.preventDefault();
+                            deleteProject(project)
+                        }
+                        }>
+                        Delete
+                    </span>
+                    <h3>{project.projectTitle}</h3>
+                    <p>{project.projectStory}</p>
+                    <p>{project.goalFunding}</p>
                 </div>
             ))}
 
@@ -81,6 +80,7 @@ function EditProject({  updateProject }) {
                     </div>
                 </form>
             )}
+        </div>
         </div>
     )
 }

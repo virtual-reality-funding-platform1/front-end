@@ -1,22 +1,17 @@
-body {
-
-}
 
 .landing {
-  width: 50%;
+  width: 80%;
   margin-right: auto;
   margin-left: auto;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .App {
-  width: 50%;
-  height: 80%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
   display: flex;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 h1 {
@@ -29,8 +24,6 @@ h1 {
 }
 
 .projectForm {
-  height: 100%;
-  width: 500px;
   margin-right: 10%;
 }
 
@@ -50,25 +43,34 @@ h1 {
 .editProject {
   height: 100%;
   width: 300px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   margin-right: 10%;
 }
+
+.listDiv {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.editProject {
+  width: 450px;
+  margin-left: 0;
+  margin-right: 0;
+  display:flex;
+  flex-wrap: wrap;
+}
+
 
 .list {
   display:flex;
   justify-content: space-around;
-  inline-size: 500px;
+  flex-wrap: wrap;
 }
 
 .projectList {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.023), 0 3px 6px rgba(0, 0, 0, 0.023);
   width: 200px;
-  box-sizing: inherit;
   font-size: 12px;
   overflow: hidden;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
 }
 
 
