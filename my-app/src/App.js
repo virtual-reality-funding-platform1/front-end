@@ -7,7 +7,7 @@ import Login from './users/Login'
 import PrivateRoute from './utils/PrivateRoute'
 import ProjectsList from './Components/ProjectsList'
 import { ProjectContext } from './contexts/ProjectContext'
-
+import Register from './Components/Register'
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
       <div>
         <div className="landing">
           <h1>Virtual Reality Funding</h1>
+          <Route path='/register' component={Register}/>
           <Route path ="/Login" component={Login} />
           <Link to ="/Login">Login</Link>
         </div>
