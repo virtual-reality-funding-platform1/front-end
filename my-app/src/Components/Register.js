@@ -3,8 +3,19 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {Formik, Field, Form} from 'formik';
+import * as Yup from 'yup';
 
-
+    const SignupSchema = Yup.object().shape({
+        username: Yup.string()
+          .min(2, 'Too Short!')
+          .max(15, 'Too Long!')
+          .required('Username is required'),
+        email: Yup.string().email('Invalid email').required('Required'),
+        password: Yup.string()
+        .min(8, 'Too Short!')
+        .max(20, 'Too Long!')
+        .required('Password is required'),
+      });
 const Register = (props) => {
     const [user, setUser] = useState({
         userRole: 'user',
@@ -36,13 +47,18 @@ const Register = (props) => {
         <h1>Register!</h1>
         <Formik
             initialValues={{
-                firstName: '',
+                userRole: '',
                 email: '',
                 username: '',
                 password: '',
             }}
+            validationSchema={SignupSchema}
+            onSubmit={values => {
+                console.log(values)
+            }}
         >
-            <Form onSubmit={submit}>
+            {({ err, touched }) => {
+              <Form onSubmit={submit}>
                 <label htmlFor='userRole'>Role:</label>
                 <Field as='select' name='userRole' onChange={change}>
                     <option value='user'>
@@ -54,15 +70,20 @@ const Register = (props) => {
                 </Field>                
                 <label htmlFor='username'>Username:</label>
                 <Field id='username' name='username' placeholder='Pick a username!' onChange={change} value={user.username}/>
+                {errors.username && touched.username ? <div>{errors.username}</div> : null}
 
                 <label htmlFor='email'>Email:</label>
                 <Field id='email' name='email' placeholder='Enter your email!' type='email' onChange={change} value={user.email}/>
+                {errors.email && touched.email ? <div>{errors.email}</div> : null}
 
                 <label htmlFor='password'>Password</label>
                 <Field id='password' name='password' placeholder='Choose a password!' onChange={change} value={user.password}/>
+                {errors.password && touched.password ? <div>{errors.password}</div> : null}
 
                 <button type='submit'>Submit</button>
-            </Form>
+            </Form>  
+            }}
+            
         </Formik>
     </div>
     )};
