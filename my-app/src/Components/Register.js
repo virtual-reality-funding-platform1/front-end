@@ -41,10 +41,6 @@ const Register = (props) => {
                 username: '',
                 password: '',
             }}
-            // onSubmit={async values => {
-            //     await new Promise(r => setTimeout(r, 500));
-            //     alert(JSON.stringify(values, null, 2));
-            // }}
         >
             <Form onSubmit={submit}>
                 <label htmlFor='userRole'>Role:</label>
@@ -55,9 +51,7 @@ const Register = (props) => {
                     <option value='investor'>
                         Investor
                     </option>
-                </Field>
-                {/* <Field id='name' name='firstName' placeholder='Enter your name!' onChange={change} value={user.firstName}/> */}
-                
+                </Field>                
                 <label htmlFor='username'>Username:</label>
                 <Field id='username' name='username' placeholder='Pick a username!' onChange={change} value={user.username}/>
 
