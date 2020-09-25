@@ -30,7 +30,6 @@ function ProjectsList (props) {
                     <p>Goal of {project.goalFunding}</p>   
                     <form onSubmit={saveDonation}>
                         <div className="selectbox" onChange={e=>setDonation({ donationAmount: e.target.value})}>
-                            <p>Donation</p>
                             <select name="donationAmount" >
                                 <option value={100}>$20.00</option>
                                 <option value={200}>$50.00</option>

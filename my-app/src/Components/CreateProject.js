@@ -11,9 +11,6 @@ const CreateProject = (props) => {
             projectID: "",
     })
 
-    // const [post, setPost] = useState([])
-   
-
     const handleChanges = e => {
         setProject({ ...project,
             [e.target.name]: e.target.value
@@ -26,7 +23,6 @@ const CreateProject = (props) => {
         axiosWithAuth()
             .post("projects", project)
             .then((res) => {
-                // setPost(res.data)
                 console.log("Create Project Working", project)
                 setProject({
                     projectTitle: "",
