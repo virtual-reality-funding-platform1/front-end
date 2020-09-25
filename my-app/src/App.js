@@ -1,12 +1,10 @@
-import React,{useState, useEffect} from 'react';
-import {FetchApi}  from './utils/FetchApi'
+import React from 'react';
 import './App.css';
 import ProjectsPage from './Components/ProjectsPage'
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from './users/Login'
 import PrivateRoute from './utils/PrivateRoute'
-import ProjectsList from './Components/ProjectsList'
-import { ProjectContext } from './contexts/ProjectContext'
+import DonationForm from './Components/DonationForm'
 
 
 function App() {
@@ -26,6 +24,8 @@ function App() {
         <Switch>
           <PrivateRoute path ="/protected" component={ProjectsPage} />
         </Switch>
+
+        <Route path ="/DonationForm"><DonationForm /></Route>
     </div>
     </Router>
   );
