@@ -14,6 +14,7 @@ function EditProject({  updateProject }) {
       const [editing, setEditing] = useState(false);
       const [projectsEdit, setProjectsEdit] = useState(initialProject);
 
+
       const editProjects = pro => {
         setEditing(true);
         setProjectsEdit(pro)
