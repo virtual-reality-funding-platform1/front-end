@@ -1,5 +1,6 @@
 
 .landing {
+  background-color: #958787;
   width: 80%;
   margin-right: auto;
   margin-left: auto;
@@ -71,6 +72,8 @@ h1 {
   width: 200px;
   font-size: 12px;
   overflow: hidden;
+  background-color: #958787;
+  margin: 10px;
 }
 
 
@@ -90,9 +93,27 @@ h2 {
 }
 
 h3 {
-  color: #b5838d
+  color: #493e3e;
 }
 
 .login {
   width: 50%;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #958787;
+  margin: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #493e3e;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.donBtn {
+  color:black;
 }

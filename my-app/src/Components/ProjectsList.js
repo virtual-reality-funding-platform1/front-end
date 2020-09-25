@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ProjectContext } from '../contexts/ProjectContext'
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
+import { Input } from 'semantic-ui-react'
 
 function ProjectsList (props) {
     const { projectList } = useContext( ProjectContext )
@@ -8,19 +9,11 @@ function ProjectsList (props) {
         donationAmount: "",
     })
 
-    // const handleChanges = e => {
-    //     e.preventDefault()
-    //     setDonation({ ...donation,
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-
     const saveDonation = pro => {
         axiosWithAuth()
         .post(`/donations/projects/${pro.id}`, {...donation,projectID: pro.id})
         .then ( (res) => {
             console.log('donation working', res)
-            setDonation(projectList.filter(item => item.id !== pro.id))
         })
         .catch(err => console.log(err));
     }
@@ -34,15 +27,18 @@ function ProjectsList (props) {
                 <div className="projectList" key={project.id} >
                     <h3> {project.projectTitle}</h3>
                     <p>{project.projectStory}</p>
-                    <p>Goal of {project.goalFunding}</p>     
+                    <p>Goal of {project.goalFunding}</p>   
                     <form onSubmit={saveDonation}>
-                        <input
-                            type="text"
-                            value={donation.donationAmount}
-                            name="donationAmount"
-                            onChange={e=>setDonation({...donation, donationAmount: e.target.value})}
-                        />
-                          <button className="delete" onClick={e => {
+                        <div className="selectbox" onChange={e=>setDonation({ donationAmount: e.target.value})}>
+                            <p>Donation</p>
+                            <select name="donationAmount" >
+                                <option value={100}>$20.00</option>
+                                <option value={200}>$50.00</option>
+                                <option value={300}>$100.00</option>
+                                <option value={400}>$500.00</option>
+                            </select>
+                        </div>
+                          <button className="donBtn" onClick={e => {
                             e.preventDefault();
                             saveDonation(project)
                         }

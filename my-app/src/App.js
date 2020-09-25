@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from './users/Login'
 import PrivateRoute from './utils/PrivateRoute'
 import userRegister from './users/userRegister'
+import NavBar from './Components/NavBar'
+
 
 function App() {
 
@@ -18,9 +20,10 @@ function App() {
         <div className="landing">
           <h1>Virtual Reality Funding</h1>
           <Route path ="/Login" component={Login} />
-          <Link to ="/Login">Login</Link>
+          {/* <Link to ="/Login">Login</Link> */}
           <Route path ="/Register" component={userRegister} />
-          <Link to ="/Register">Register</Link>
+          {/* <Link to ="/Register">Register</Link> */}
+          <NavBar />
         </div>
         <Switch>
           <PrivateRoute path ="/protected" component={ProjectsPage} />
