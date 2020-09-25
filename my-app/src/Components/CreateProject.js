@@ -8,6 +8,7 @@ const CreateProject = (props) => {
             projectTitle: "",
             projectStory: "",
             goalFunding: "",
+            projectID: "",
     })
 
     // const [post, setPost] = useState([])

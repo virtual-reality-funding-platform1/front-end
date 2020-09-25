@@ -4,8 +4,7 @@ import ProjectsPage from './Components/ProjectsPage'
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from './users/Login'
 import PrivateRoute from './utils/PrivateRoute'
-import DonationForm from './Components/DonationForm'
-
+import userRegister from './users/userRegister'
 
 function App() {
 
@@ -20,12 +19,13 @@ function App() {
           <h1>Virtual Reality Funding</h1>
           <Route path ="/Login" component={Login} />
           <Link to ="/Login">Login</Link>
+          <Route path ="/Register" component={userRegister} />
+          <Link to ="/Register">Register</Link>
         </div>
         <Switch>
           <PrivateRoute path ="/protected" component={ProjectsPage} />
         </Switch>
 
-        <Route path ="/DonationForm"><DonationForm /></Route>
     </div>
     </Router>
   );

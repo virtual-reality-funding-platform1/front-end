@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ProjectContext } from '../contexts/ProjectContext'
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
-import { FetchApi } from '../utils/FetchApi'
 
 function ProjectsList (props) {
     const { projectList } = useContext( ProjectContext )
@@ -18,7 +17,7 @@ function ProjectsList (props) {
 
     const saveDonation = pro => {
         axiosWithAuth()
-        .post(`/donations/projects/${pro.id}`, donation)
+        .post(`/donations/projects/${pro.id}`, {...donation,projectID: pro.id})
         .then ( (res) => {
             console.log('donation working', res)
             setDonation(projectList.filter(item => item.id !== pro.id))

@@ -5,8 +5,7 @@ import CreateProject from './CreateProject'
 import ProjectsList from './ProjectsList'
 import EditProject from './EditProject'
 import { ProjectContext } from '../contexts/ProjectContext'
-import  DonationPage  from '../Components/DonationPage'
-import { DonationContext } from '../contexts/DonationContext'
+
 
 const ProjectsPage = () => {
     const [projectList, setProjectList] = useState ([{
