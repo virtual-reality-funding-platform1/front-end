@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ProjectContext } from '../contexts/ProjectContext'
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
-import { Input } from 'semantic-ui-react'
+
 
 function ProjectsList (props) {
     const { projectList } = useContext( ProjectContext )
@@ -17,8 +17,8 @@ function ProjectsList (props) {
         })
         .catch(err => console.log(err));
     }
- 
-
+    
+    
     return (
         <div className="listDiv">
             <h2>Start fundraising today</h2>
@@ -39,9 +39,11 @@ function ProjectsList (props) {
                         </div>
                           <button className="donBtn" onClick={e => {
                             e.preventDefault();
-                            saveDonation(project)
+                            saveDonation(project);
+                            alert("Thank You For Your Donation!!!")
                         }
                         }>
+
                         Add Donation
                     </button>
                     </form>

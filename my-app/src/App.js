@@ -10,6 +10,7 @@ import NavBar from './Components/NavBar'
 
 function App() {
 
+  const virtualImage = require('./augmented-reality.jpg')
 
 
   return (
@@ -22,6 +23,10 @@ function App() {
           <Route path ="/Register" component={userRegister} />
           <NavBar />
         </div>
+        
+        <Route exact path="/">
+          <img src={virtualImage} alt="home page image girl riding bike" />
+        </Route>
 
         <Switch>
           <PrivateRoute path ="/protected" component={ProjectsPage} />
