@@ -1,14 +1,17 @@
 import React, { useState } from "react"
+import axios from "axios"
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
-import {  Form, Button } from 'semantic-ui-react'
+import { Input, Form, Button } from 'semantic-ui-react'
 
 const CreateProject = (props) => {
     const [project, setProject] = useState({
             projectTitle: "",
             projectStory: "",
             goalFunding: "",
-            projectID: "",
     })
+
+    // const [post, setPost] = useState([])
+   
 
     const handleChanges = e => {
         setProject({ ...project,
@@ -22,6 +25,7 @@ const CreateProject = (props) => {
         axiosWithAuth()
             .post("projects", project)
             .then((res) => {
+                // setPost(res.data)
                 console.log("Create Project Working", project)
                 setProject({
                     projectTitle: "",
@@ -71,4 +75,3 @@ const CreateProject = (props) => {
 }
 
 export default CreateProject
-

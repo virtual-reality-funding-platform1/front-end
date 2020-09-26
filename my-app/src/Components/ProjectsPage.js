@@ -38,7 +38,7 @@ const ProjectsPage = () => {
              <ProjectContext.Provider value={ {projectList }} >
                     <CreateProject newProject={newProject}  />
                     <EditProject updateProject={setProjectList} />
-                    <ProjectsList />
+                    <ProjectsList projectList={projectList} />
             </ProjectContext.Provider>
         </div>
     )

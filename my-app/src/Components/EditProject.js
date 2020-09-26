@@ -43,9 +43,26 @@ function EditProject({  updateProject }) {
     }
 
     return (
-        <div className="editProject">
+        <div>
             <h2>Edit Project</h2>
-            
+            <div className="editProject" >
+            {projectList.map((project) => (
+                <div className="editProjectList" key={project.project} onClick={() => editProjects(project)}>
+                    <div>
+              <span  className="delete" onClick={e => {
+                    e.preventDefault();
+                    deleteProject(project)
+                  }
+                }>
+                  Delete
+              </span>
+              <h3>{project.projectTitle}</h3>
+              <p>{project.projectStory}</p>
+              <p>{project.goalFunding}</p>
+            </div>
+                </div>
+            ))}
+
             {editing && (
                 <form onSubmit={saveEdit}>
                     <input onChange={e => 
@@ -66,26 +83,10 @@ function EditProject({  updateProject }) {
                     </div>
                 </form>
             )}
-
-            <div className="editProject">
-            {projectList.map((project) => (
-                <div className="editProjectList" key={project.project} onClick={() => editProjects(project)}>
-                    <h3>{project.projectTitle}</h3>
-                    <p>{project.projectStory}</p>
-                    <p>{project.goalFunding}</p>
-                    <button className="delete" onClick={e => {
-                            e.preventDefault();
-                            deleteProject(project)
-                        }
-                        }>
-                        Remove
-                    </button>
-                    
-                </div>
-                
-            ))}
         </div>
         </div>
+        
+            
     )
 }
 
