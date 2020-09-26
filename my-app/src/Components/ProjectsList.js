@@ -34,13 +34,13 @@ function ProjectsList (props) {
                                 <option value={100}>$20.00</option>
                                 <option value={200}>$50.00</option>
                                 <option value={300}>$100.00</option>
-                                <option value={400}>$500.00</option>
+                                <option value={500}>$500.00</option>
                             </select>
                         </div>
                           <button className="donBtn" onClick={e => {
                             e.preventDefault();
                             saveDonation(project);
-                            alert("Thank You For Your Donation!!!")
+                            alert("Thank You For Your Donation!!! ")
                         }
                         }>
 
