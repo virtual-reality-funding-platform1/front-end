@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { axiosWithAuth } from '../utils/AxiosWithAuth'
 import { FetchApi } from '../utils/FetchApi'
 import CreateProject from './CreateProject'
 import ProjectsList from './ProjectsList'
@@ -39,7 +38,7 @@ const ProjectsPage = () => {
              <ProjectContext.Provider value={ {projectList }} >
                     <CreateProject newProject={newProject}  />
                     <EditProject updateProject={setProjectList} />
-                    <ProjectsList projectList={projectList} />
+                    <ProjectsList />
             </ProjectContext.Provider>
         </div>
     )

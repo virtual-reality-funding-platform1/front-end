@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import axios from "axios"
 import {axiosWithAuth} from '../utils/AxiosWithAuth'
-import { Input, Form, Button } from 'semantic-ui-react'
+import {  Form, Button } from 'semantic-ui-react'
 
 const CreateProject = (props) => {
     const [project, setProject] = useState({

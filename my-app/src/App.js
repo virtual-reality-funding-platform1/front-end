@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ProjectsPage from './Components/ProjectsPage'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './users/Login'
 import PrivateRoute from './utils/PrivateRoute'
 import userRegister from './users/userRegister'
@@ -23,9 +23,9 @@ function App() {
           <Route path ="/Register" component={userRegister} />
           <NavBar />
         </div>
-        
+
         <Route exact path="/">
-          <img src={virtualImage} alt="home page image girl riding bike" />
+          <img src={virtualImage} alt="home page  girl riding bike" />
         </Route>
 
         <Switch>
